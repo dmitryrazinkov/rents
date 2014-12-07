@@ -21,4 +21,8 @@ public class BussinesCenterService {
         }
         return bussinesCenterList;
     }
+
+    public BussinesCenter add(BussinesCenter b){
+        return bussinesCenterRepository.save(b);
+    }
 }

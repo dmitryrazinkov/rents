@@ -1,9 +1,7 @@
 package rent.entitys;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class BussinesCenter {
@@ -13,6 +11,9 @@ public class BussinesCenter {
     private Integer id;
 
     private String name;
+
+    @OneToMany(mappedBy="bussinesCenter")
+    private List<Room> rooms;
 
     public BussinesCenter(String name) {
         this.name = name;
