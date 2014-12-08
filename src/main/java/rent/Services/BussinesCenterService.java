@@ -25,4 +25,8 @@ public class BussinesCenterService {
     public BussinesCenter add(BussinesCenter b){
         return bussinesCenterRepository.save(b);
     }
+
+    public BussinesCenter getOne(Integer id){
+     return bussinesCenterRepository.findOne(id);
+    }
 }

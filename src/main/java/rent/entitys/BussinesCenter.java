@@ -1,6 +1,7 @@
 package rent.entitys;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -12,8 +13,8 @@ public class BussinesCenter {
 
     private String name;
 
-    @OneToMany(mappedBy="bussinesCenter")
-    private List<Room> rooms;
+    @OneToMany(mappedBy="bussinesCenter",fetch = FetchType.EAGER)
+    private List<Room> rooms=new ArrayList<Room>();
 
     public BussinesCenter(String name) {
         this.name = name;
@@ -28,6 +29,14 @@ public class BussinesCenter {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public List<Room> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(List<Room> rooms) {
+        this.rooms = rooms;
     }
 
     public String getName() {
