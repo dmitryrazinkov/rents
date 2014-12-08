@@ -1,4 +1,6 @@
-<table>
+<#include "/all/header.ftl">
+<h2 align="center">Rooms</h2>
+<table class="table table-striped">
     <tr>
         <th>ID</th>
         <th>Number</th>
@@ -16,3 +18,5 @@
 
     </#list>
 </table>
+<a href="${id}/addRoom" class="btn btn-default" role="button">Add Room</a>
+<#include "/all/footer.ftl">

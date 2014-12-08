@@ -71,4 +71,15 @@ public class Room {
         this.floor = floor;
         this.area = area;
     }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "id=" + id +
+                ", num=" + num +
+                ", bussinesCenter=" + bussinesCenter +
+                ", floor=" + floor +
+                ", area=" + area +
+                '}';
+    }
 }

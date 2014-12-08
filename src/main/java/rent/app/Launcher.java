@@ -16,5 +16,6 @@ public class Launcher {
         RoomRepository roomRepository=context.getBean(RoomRepository.class);
         bussinesCenterRepository.save(new BussinesCenter("Аксиома"));
         roomRepository.save(new Room(12,bussinesCenterRepository.findByName("Аксиома"),2,new BigDecimal(2.1)));
+        roomRepository.save(new Room(1,bussinesCenterRepository.findByName("Аксиома"),2,new BigDecimal(2.1)));
     }
 }

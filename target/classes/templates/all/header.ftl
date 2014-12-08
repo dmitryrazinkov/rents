@@ -21,7 +21,7 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li><a href="/rent/center">Centers</a></li>
-                <li><a href="/rent/company">Company</a></li>
+                <li><a href="/rent/company">Companys</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

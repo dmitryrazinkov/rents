@@ -4,14 +4,19 @@
     <tr>
         <th>ID</th>
         <th>Name</th>
+        <th></th>
     </tr>
     <#list centerList as center>
 
         <tr>
             <td>${center.id}</td>
             <td>${center.name}</td>
+            <td>
+                <a href="center/${center.id}">Rooms</a>
+            </td>
         </tr>
 
     </#list>
 </table>
+<a href="center/add" class="btn btn-default" role="button">Add Center</a>
 <#include "/all/footer.ftl">
