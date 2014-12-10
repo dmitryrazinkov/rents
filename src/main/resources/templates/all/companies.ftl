@@ -3,6 +3,7 @@
     <table class="table table-striped">
         <tr>
             <th>ID</th>
+            <th>Name</th>
             <th>Contact</th>
             <th>Tel.</th>
         </tr>
@@ -10,6 +11,7 @@
 
             <tr>
                 <td>${company.id}</td>
+                <td>${company.name}</td>
                 <td>${company.contact}</td>
                 <td>${company.tel}</td>
             </tr>

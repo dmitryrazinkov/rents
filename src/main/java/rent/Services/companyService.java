@@ -19,6 +19,11 @@ public class CompanyService {
             companies.add(company);
         }
         return companies;
+
+    }
+
+    public Company add(Company company){
+        return companyRepository.save(company);
     }
 
 }

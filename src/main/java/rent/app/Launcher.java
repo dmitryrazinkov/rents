@@ -20,6 +20,6 @@ public class Launcher {
         bussinesCenterRepository.save(new BussinesCenter("Аксиома"));
         roomRepository.save(new Room(12,bussinesCenterRepository.findByName("Аксиома"),2,new BigDecimal(2.1)));
         roomRepository.save(new Room(1,bussinesCenterRepository.findByName("Аксиома"),2,new BigDecimal(2.1)));
-        companyRepository.save(new Company("Иван","435663"));
+        companyRepository.save(new Company("DSR","Иван","435663"));
     }
 }

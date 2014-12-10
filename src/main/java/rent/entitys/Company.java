@@ -11,13 +11,18 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    private String name;
+
     private String contact;
 
     private  String tel;
 
-    public Company(String contact, String tel) {
+
+    public Company(String contact, String tel, String name) {
         this.contact = contact;
         this.tel = tel;
+
+        this.name=name;
     }
 
     public Company() {
@@ -46,4 +51,12 @@ public class Company {
     public void setTel(String tel) {
         this.tel = tel;
     }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 }
