@@ -12,6 +12,8 @@ import rent.Services.RoomService;
 import rent.entitys.BussinesCenter;
 import rent.entitys.Room;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/rent/center/{id}")
 public class RoomController {
@@ -24,7 +26,8 @@ public class RoomController {
 
     @RequestMapping("")
     public String allRooms(@PathVariable Integer id, ModelMap modelMap ){
-        modelMap.addAttribute(bussinesCenterService.getOne(id).getRooms());
+        List<Room> rooms=bussinesCenterService.getOne(id).getRooms();
+        if (rooms!=null) modelMap.addAttribute(rooms);
         modelMap.addAttribute("id",id);
         return("all/rooms");
 
