@@ -35,6 +35,8 @@ public class RoomController {
 
     @RequestMapping(value = "/addRoom", method = RequestMethod.GET)
     public String addRoom(){
+
+
         return "all/addRoom";
     }
 

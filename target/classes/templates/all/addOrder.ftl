@@ -1,5 +1,5 @@
 <#include "/all/header.ftl">
-    <form method="post" >
+    <form method="post" action="/rent/center/${id}/${roomId}/addOrder" >
         <div class="form-group">
             <label>Название компании:</label>
             <input type="text" name="name" class="form-control">

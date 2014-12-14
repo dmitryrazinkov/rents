@@ -1,5 +1,5 @@
 <#include "/all/header.ftl">
-    <form method="post"  name="room">
+    <form method="post" name="room">
         <div class="form-group">
             <label>Number of room:</label>
             <input type="number" name="num" class="form-control">

@@ -29,16 +29,24 @@ public class OdersController {
 
 
     @RequestMapping(value = "/{roomId}/addOrder", method = RequestMethod.GET)
-    public String addForm(){
+    public String addForm(@PathVariable Integer id,@PathVariable Integer roomId, ModelMap modelMap){
+        modelMap.addAttribute("roomId",roomId);
+        modelMap.addAttribute("id",id);
+
         return "all/addOrder";
     }
+
+
     @RequestMapping(value = "/{roomId}/addOrder", method = RequestMethod.POST)
-    public String addOrders(@PathVariable Integer roomId, @ModelAttribute Company company, @ModelAttribute Orders order,ModelMap modelMap){
+    public String addOrders(@PathVariable Integer id,@PathVariable Integer roomId, @ModelAttribute Company company, @ModelAttribute Orders order,ModelMap modelMap){
+
+
         company=companyService.findByName(company.getName());
         Room room=roomService.findOne(roomId);
         order=ordersService.addOrder(new Orders(order.getStartDate(),order.getEndDate(),company,room));
         company.getOrders().add(order);
         room.getOrders().add(order);
+
         return "redirect:/rent/center/{id}";
     }
 }
