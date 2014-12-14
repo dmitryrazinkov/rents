@@ -2,6 +2,8 @@ package rent.entitys;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Room {
@@ -17,9 +19,20 @@ public class Room {
     @JoinColumn(name="busId")
     private BussinesCenter bussinesCenter;
 
+    @OneToMany(mappedBy = "room", fetch = FetchType.EAGER)
+    List<Orders> orders= new ArrayList<Orders>();
+
     private Integer floor;
 
     private BigDecimal area;
+
+    public List<Orders> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Orders> orders) {
+        this.orders = orders;
+    }
 
     public Integer getId() {
         return id;

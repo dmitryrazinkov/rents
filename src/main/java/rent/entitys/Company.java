@@ -1,9 +1,8 @@
 package rent.entitys;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Company {
@@ -17,8 +16,11 @@ public class Company {
 
     private  String tel;
 
+    @OneToMany(mappedBy = "company", fetch = FetchType.EAGER)
+    List<Orders> orders= new ArrayList<Orders>();
 
-    public Company(String contact, String tel, String name) {
+
+    public Company(String name, String contact, String tel) {
         this.contact = contact;
         this.tel = tel;
 
@@ -26,6 +28,14 @@ public class Company {
     }
 
     public Company() {
+    }
+
+    public List<Orders> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Orders> orders) {
+        this.orders = orders;
     }
 
     public Integer getId() {

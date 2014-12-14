@@ -22,6 +22,10 @@ public class CompanyService {
 
     }
 
+    public Company findByName(String name){
+        return companyRepository.findByName(name);
+    }
+
     public Company add(Company company){
         return companyRepository.save(company);
     }

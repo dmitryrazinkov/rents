@@ -13,4 +13,8 @@ public class RoomService {
     public Room addRoom(Room room){
         return roomRepository.save(room);
     }
+
+    public Room findOne(Integer id){
+        return roomRepository.findOne(id);
+    }
 }
