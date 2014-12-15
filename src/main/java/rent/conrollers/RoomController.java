@@ -26,7 +26,10 @@ public class RoomController {
 
     @RequestMapping("")
     public String allRooms(@PathVariable Integer id, ModelMap modelMap ){
-        List<Room> rooms=bussinesCenterService.getOne(id).getRooms();
+        BussinesCenter bussinesCenter=bussinesCenterService.getOne(id);
+        modelMap.addAttribute("center",bussinesCenter.getName());
+
+        List<Room> rooms=bussinesCenter.getRooms();
         if (rooms!=null) modelMap.addAttribute(rooms);
         modelMap.addAttribute("id",id);
         return("all/rooms");

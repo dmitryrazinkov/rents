@@ -2,7 +2,7 @@
 <h2 align="center">Bussines Centers</h2>
 <table class="table table-striped">
     <tr>
-        <th>ID</th>
+        <th>#</th>
         <th>Name</th>
         <th></th>
     </tr>

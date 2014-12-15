@@ -16,7 +16,7 @@ import rent.entitys.Room;
 
 @Controller
 @RequestMapping("rent/center/{id}")
-public class OdersController {
+public class OrdersController {
     @Autowired
     OrdersService ordersService;
 
@@ -26,6 +26,14 @@ public class OdersController {
     @Autowired
     CompanyService companyService;
 
+    @RequestMapping("/{roomId}")
+    public String orders (@PathVariable Integer id,@PathVariable Integer roomId, ModelMap modelMap) {
+        modelMap.addAttribute("id",roomId);
+        modelMap.addAttribute("orderList",ordersService.findByRoomId(roomId));
+
+        modelMap.addAttribute("roomNum",roomService.findOne(roomId).getNum());
+        return "all/orders";
+    }
 
 
     @RequestMapping(value = "/{roomId}/addOrder", method = RequestMethod.GET)
@@ -47,6 +55,6 @@ public class OdersController {
         company.getOrders().add(order);
         room.getOrders().add(order);
 
-        return "redirect:/rent/center/{id}";
+        return "redirect:/rent/center/{id}/{roomId}";
     }
 }

@@ -1,12 +1,13 @@
 <#include "/all/header.ftl">
-<h2 align="center">Rooms</h2>
+<h2 align="center">Rooms of ${center}</h2>
 <#if roomList??>
 <table class="table table-striped">
     <tr>
-        <th>ID</th>
+        <th>#</th>
         <th>Number</th>
         <th>Floor</th>
         <th>Area</th>
+        <th></th>
     </tr>
     <#list roomList as room>
 
@@ -15,6 +16,7 @@
             <td>${room.num}</td>
             <td>${room.floor}</td>
             <td>${room.area}</td>
+            <td><a href="${id}/${room.id}">Orders</a></td>
         </tr>
 
     </#list>
