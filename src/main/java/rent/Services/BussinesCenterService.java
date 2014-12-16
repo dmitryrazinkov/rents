@@ -29,4 +29,13 @@ public class BussinesCenterService {
     public BussinesCenter getOne(Integer id){
      return bussinesCenterRepository.findOne(id);
     }
+    public  BussinesCenter update(Integer id, BussinesCenter bussinesCenter){
+        BussinesCenter updateBussinesCenter= bussinesCenterRepository.findOne(id);
+        updateBussinesCenter.setName(bussinesCenter.getName());
+        return bussinesCenterRepository.save(updateBussinesCenter);
+    }
+
+    public void delete(Integer id){
+        bussinesCenterRepository.delete(id);
+    }
 }

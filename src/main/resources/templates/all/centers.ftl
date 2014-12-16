@@ -5,12 +5,19 @@
         <th>#</th>
         <th>Name</th>
         <th></th>
+        <th></th>
     </tr>
     <#list centerList as center>
 
         <tr>
             <td>${center.id}</td>
             <td>${center.name}</td>
+            <td>
+                <span class="glyphicon glyphicon-pencil"></span>
+                <a href="/rent/center/update/${center.id}">Edit</a>
+                <span class="glyphicon glyphicon-remove"></span>
+                <a href="/rent/center/delete/${center.id}">Delete</a>
+            </td>
             <td>
                 <a href="center/${center.id}">Rooms</a>
             </td>
