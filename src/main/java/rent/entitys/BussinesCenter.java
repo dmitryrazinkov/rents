@@ -1,5 +1,7 @@
 package rent.entitys;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +13,7 @@ public class BussinesCenter {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @NotEmpty(message = "Name of center can't be empty")
     private String name;
 
     @OneToMany(mappedBy="bussinesCenter",fetch = FetchType.EAGER)
@@ -65,5 +68,13 @@ public class BussinesCenter {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "BussinesCenter{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                '}';
     }
 }

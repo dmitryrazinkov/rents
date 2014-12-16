@@ -1,4 +1,13 @@
 <#include "/all/header.ftl">
+
+    <#if error??>
+        <div class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span>
+            <p> ${error}</p>
+        </div>
+    </#if>
+
 <h2 align="center">Bussines Centers</h2>
 <table class="table table-striped">
     <tr>
@@ -19,11 +28,14 @@
                 <a href="/rent/center/delete/${center.id}">Delete</a>
             </td>
             <td>
-                <a href="center/${center.id}">Rooms</a>
+                <a href="/rent/center/${center.id}">Rooms</a>
             </td>
         </tr>
 
     </#list>
 </table>
-<a href="center/add" class="btn btn-default" role="button">Add Center</a>
+<a href="rent/center/add" class="btn btn-default" role="button">Add Center</a>
+
+
+
 <#include "/all/footer.ftl">
