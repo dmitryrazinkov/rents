@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89e7f3bc-0198-4361-b970-9c8c136184f6" name="Default" comment="">
+      <change type="MOVED" beforePath="C:\Users\Дмитрий\Desktop\rents\src\main\java\rent\Services\companyService.java" afterPath="$PROJECT_DIR$/src/main/java/rent/Services/CompanyService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rent/Services/BussinesCenterService.java" afterPath="$PROJECT_DIR$/src/main/java/rent/Services/BussinesCenterService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rent/Services/OrdersService.java" afterPath="$PROJECT_DIR$/src/main/java/rent/Services/OrdersService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rent/Services/RoomService.java" afterPath="$PROJECT_DIR$/src/main/java/rent/Services/RoomService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="rents.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,9 +52,10 @@
       <file leaf-file-name="RoomService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/rent/Services/RoomService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42546245" vertical-offset="0" max-vertical-offset="919">
+            <state vertical-scroll-proportion="0.5179543" vertical-offset="0" max-vertical-offset="919">
               <caret line="30" column="48" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="e#488#489#0" expanded="true" />
                 <element signature="e#537#538#0" expanded="true" />
                 <element signature="e#899#900#0" expanded="true" />
@@ -1223,9 +1226,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/rent/Services/RoomService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42546245" vertical-offset="0" max-vertical-offset="919">
+        <state vertical-scroll-proportion="0.5179543" vertical-offset="0" max-vertical-offset="919">
           <caret line="30" column="48" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#488#489#0" expanded="true" />
             <element signature="e#537#538#0" expanded="true" />
             <element signature="e#899#900#0" expanded="true" />
