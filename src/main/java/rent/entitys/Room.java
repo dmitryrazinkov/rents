@@ -15,8 +15,8 @@ public class Room {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Min(value = 1,message = "Number less then 1.")
-    @Max(value = 1000,message = "Number more then 1000.")
+    @Min(value = 1,message = "Number can't be less then 1.")
+    @Max(value = 1000,message = "Number can't be more then 10000.")
     @NotNull(message = "Enter number.")
     private Integer num;
 
@@ -28,13 +28,13 @@ public class Room {
     @OneToMany(mappedBy = "room", fetch = FetchType.EAGER)
     List<Orders> orders = new ArrayList<Orders>();
 
-    @Min(value = 1,message = "Floor less then 1.")
-    @Max(value = 1000,message = "Floor more then 1000.")
+    @Min(value = 1,message = "Floor can't be less then 1.")
+    @Max(value = 1000,message = "Floor can't be more then 1000.")
     @NotNull(message = "Enter floor.")
     private Integer floor;
 
-    @Min(value = 1,message = "Area less then 1.")
-    @Max(value = 1000,message = "Area more then 1000.")
+    @Min(value = 1,message = "Area can' be less then 1.")
+    @Max(value = 1000,message = "Area can' be more then 10000.")
     @NotNull(message = "Enter area.")
     private BigDecimal area;
 

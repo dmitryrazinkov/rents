@@ -27,4 +27,9 @@ public class OrdersService {
         }
         return ordersList;
     }
+
+    @Transactional
+    public void delete(Integer id){
+        odersRepository.delete(id);
+    }
 }

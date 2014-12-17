@@ -13,10 +13,15 @@
     <form method="post" action="/rent/center/${id}/${roomId}/addOrder"  >
         <div class="form-group">
             <label>Название компании:</label>
-            <input type="text" name="name" class="form-control">
+     <!--       <input type="text" name="name" class="form-control"> -->
+            <select name="name" class="form-control">
+                <#list companies as company>
+                     <option>${company.name}</option>
+                </#list>
+            </select>
             <p align="left">
                 <small>
-                    You also can <a href="/rent/company/add">add</a> company.
+                    You also can <a href="/rent/company/add">add</a> new company.
                 </small>
             </p>
         </div>

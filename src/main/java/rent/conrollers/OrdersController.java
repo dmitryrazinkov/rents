@@ -33,7 +33,8 @@ public class OrdersController {
 
     @RequestMapping("/{roomId}")
     public String orders(@PathVariable Integer id, @PathVariable Integer roomId, ModelMap modelMap) {
-        modelMap.addAttribute("id", roomId);
+        modelMap.addAttribute("roomId", roomId);
+        modelMap.addAttribute("id",id);
         modelMap.addAttribute("orderList", ordersService.findByRoomId(roomId));
 
         modelMap.addAttribute("roomNum", roomService.findOne(roomId).getNum());
@@ -45,6 +46,7 @@ public class OrdersController {
     public String addForm(@PathVariable Integer id, @PathVariable Integer roomId, ModelMap modelMap) {
         modelMap.addAttribute("roomId", roomId);
         modelMap.addAttribute("id", id);
+        modelMap.addAttribute("companies",companyService.allCompany());
 
         return "all/addOrder";
     }
@@ -66,6 +68,7 @@ public class OrdersController {
 
             }
             modelMap.addAttribute("errors", errors);
+            modelMap.addAttribute("companies",companyService.allCompany());
             return "all/addOrder";
         }
 
@@ -76,4 +79,11 @@ public class OrdersController {
 
         return "redirect:/rent/center/{id}/{roomId}";
     }
+
+    @RequestMapping("/{roomId}/delete/{orderId}")
+    public String delete(@PathVariable() Integer orderId){
+        ordersService.delete(orderId);
+        return "redirect:/rent/center/{id}/{roomId}";
+    }
+
 }

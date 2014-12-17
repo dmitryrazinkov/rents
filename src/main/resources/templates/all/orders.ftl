@@ -8,6 +8,7 @@
                 <th>Company</th>
                 <th>Date Start</th>
                 <th>Date End</th>
+                <th></th>
             </tr>
             <#list orderList as order>
 
@@ -17,10 +18,14 @@
                     <td>${order.company.name}</td>
                     <td>${order.startDate}</td>
                     <td>${order.endDate}</td>
+                    <td>
+                        <span class="glyphicon glyphicon-remove"></span>
+                        <a href="/rent/center/${id}/${roomId}/delete/${order.id}">Delete</a>
+                    </td>
                 </tr>
 
             </#list>
         </table>
     </#if>
-    <a href="${id}/addOrder" class="btn btn-default" role="button">Add Order</a>
+    <a href="${roomId}/addOrder" class="btn btn-default" role="button">Add Order</a>
     <#include "/all/footer.ftl">
