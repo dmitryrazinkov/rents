@@ -1,6 +1,7 @@
 package rent.entitys;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,7 @@ public class Room {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @NotNull(message = "Enter number.")
     private Integer num;
 
 
@@ -22,8 +24,10 @@ public class Room {
     @OneToMany(mappedBy = "room", fetch = FetchType.EAGER)
     List<Orders> orders= new ArrayList<Orders>();
 
+    @NotNull(message = "Enter floor.")
     private Integer floor;
 
+    @NotNull(message = "Enter area.")
     private BigDecimal area;
 
     public List<Orders> getOrders() {

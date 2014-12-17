@@ -34,7 +34,7 @@
 
     </#list>
 </table>
-<a href="rent/center/add" class="btn btn-default" role="button">Add Center</a>
+<a href="/rent/center/add" class="btn btn-default" role="button">Add Center</a>
 
 
 

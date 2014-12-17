@@ -3,6 +3,7 @@ package rent.conrollers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,10 @@ import rent.Services.RoomService;
 import rent.entitys.Company;
 import rent.entitys.Orders;
 import rent.entitys.Room;
+
+import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("rent/center/{id}")
@@ -46,10 +51,23 @@ public class OrdersController {
 
 
     @RequestMapping(value = "/{roomId}/addOrder", method = RequestMethod.POST)
-    public String addOrders(@PathVariable Integer id,@PathVariable Integer roomId, @ModelAttribute Company company, @ModelAttribute Orders order,ModelMap modelMap){
-
-
+    public String addOrders(@PathVariable Integer id,@PathVariable Integer roomId, @ModelAttribute Company company, @ModelAttribute @Valid Orders order,BindingResult result, ModelMap modelMap){
         company=companyService.findByName(company.getName());
+
+        if(result.hasErrors()||company==null) {
+            List<String> errors = new ArrayList<String>();
+
+            if (result.hasErrors()) {
+                    errors.add("Enter dates");
+            }
+            if (company == null) {
+                errors.add( "This company not found. Create this company or enter other");
+
+            }
+            modelMap.addAttribute("errors", errors);
+            return "all/addOrder";
+        }
+
         Room room=roomService.findOne(roomId);
         order=ordersService.addOrder(new Orders(order.getStartDate(),order.getEndDate(),company,room));
         company.getOrders().add(order);

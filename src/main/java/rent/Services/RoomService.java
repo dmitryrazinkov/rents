@@ -17,4 +17,16 @@ public class RoomService {
     public Room findOne(Integer id){
         return roomRepository.findOne(id);
     }
+
+    public Room update(Integer id, Room room){
+        Room updateRoom=roomRepository.findOne(id);
+        updateRoom.setFloor(room.getFloor());
+        updateRoom.setArea(room.getArea());
+        updateRoom.setNum(room.getNum());
+        return  roomRepository.save(updateRoom);
+    }
+
+    public void delete(Integer id){
+        roomRepository.delete(id);
+    }
 }

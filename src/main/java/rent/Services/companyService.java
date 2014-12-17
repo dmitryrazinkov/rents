@@ -30,4 +30,19 @@ public class CompanyService {
         return companyRepository.save(company);
     }
 
+    public void delete(Integer id){
+        companyRepository.delete(id);
+    }
+
+    public Company update(Integer id, Company company){
+        Company updateCompany=companyRepository.findOne(id);
+        updateCompany.setName(company.getName());
+        updateCompany.setContact(company.getContact());
+        updateCompany.setTel(company.getTel());
+        return companyRepository.save(updateCompany);
+    }
+
+    public Company findOne(Integer id){
+        return companyRepository.findOne(id);
+    }
 }
