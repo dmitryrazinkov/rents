@@ -7,7 +7,7 @@ import rent.entitys.Orders;
 import java.util.List;
 
 @Repository
-public interface OdersRepository extends CrudRepository<Orders,Integer> {
+public interface OdersRepository extends CrudRepository<Orders, Integer> {
 
     List<Orders> findByRoomId(Integer id);
 }

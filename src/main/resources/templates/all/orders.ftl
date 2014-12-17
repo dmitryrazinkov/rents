@@ -3,7 +3,7 @@
     <#if orderList??>
         <table class="table table-striped">
             <tr>
-                <th>#</th>
+
                 <th>Room</th>
                 <th>Company</th>
                 <th>Date Start</th>
@@ -12,7 +12,7 @@
             <#list orderList as order>
 
                 <tr>
-                    <td>${order.id}</td>
+
                     <td>${order.room.num}</td>
                     <td>${order.company.name}</td>
                     <td>${order.startDate}</td>

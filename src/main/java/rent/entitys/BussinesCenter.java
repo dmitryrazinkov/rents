@@ -16,8 +16,8 @@ public class BussinesCenter {
     @NotEmpty(message = "Name of center can't be empty")
     private String name;
 
-    @OneToMany(mappedBy="bussinesCenter",fetch = FetchType.EAGER)
-    private List<Room> rooms=new ArrayList<Room>();
+    @OneToMany(mappedBy = "bussinesCenter", fetch = FetchType.EAGER)
+    private List<Room> rooms = new ArrayList<Room>();
 
     public BussinesCenter(String name) {
         this.name = name;

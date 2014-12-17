@@ -8,7 +8,7 @@ import rent.entitys.Company;
 import java.util.List;
 
 @Repository
-public interface CompanyRepository extends CrudRepository<Company,Integer> {
+public interface CompanyRepository extends CrudRepository<Company, Integer> {
 
     @Query("Select c from Company c")
     List<Company> allCompanys();

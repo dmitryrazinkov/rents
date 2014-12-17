@@ -15,14 +15,14 @@ public class OrdersService {
     OdersRepository odersRepository;
 
     @Transactional
-    public Orders addOrder(Orders order){
+    public Orders addOrder(Orders order) {
         return odersRepository.save(order);
     }
 
     @Transactional
-    public List<Orders> findByRoomId(Integer id){
-        List<Orders> ordersList=new ArrayList<Orders>();
-        for (Orders order: odersRepository.findByRoomId(id)) {
+    public List<Orders> findByRoomId(Integer id) {
+        List<Orders> ordersList = new ArrayList<Orders>();
+        for (Orders order : odersRepository.findByRoomId(id)) {
             ordersList.add(order);
         }
         return ordersList;

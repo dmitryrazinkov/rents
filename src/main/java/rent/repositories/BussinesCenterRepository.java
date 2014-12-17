@@ -9,7 +9,7 @@ import rent.entitys.BussinesCenter;
 import java.util.List;
 
 @Repository
-public interface BussinesCenterRepository extends CrudRepository<BussinesCenter,Integer> {
+public interface BussinesCenterRepository extends CrudRepository<BussinesCenter, Integer> {
 
     @Query("Select b from BussinesCenter b")
     List<BussinesCenter> allCenters();

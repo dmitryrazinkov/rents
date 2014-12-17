@@ -17,17 +17,17 @@ public class Company {
 
     private String contact;
 
-    private  String tel;
+    private String tel;
 
     @OneToMany(mappedBy = "company", fetch = FetchType.EAGER)
-    List<Orders> orders= new ArrayList<Orders>();
+    List<Orders> orders = new ArrayList<Orders>();
 
 
     public Company(String name, String contact, String tel) {
         this.contact = contact;
         this.tel = tel;
 
-        this.name=name;
+        this.name = name;
     }
 
     public Company() {
@@ -64,6 +64,7 @@ public class Company {
     public void setTel(String tel) {
         this.tel = tel;
     }
+
     public String getName() {
         return name;
     }

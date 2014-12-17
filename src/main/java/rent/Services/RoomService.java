@@ -13,26 +13,26 @@ public class RoomService {
     RoomRepository roomRepository;
 
     @Transactional
-    public Room addRoom(Room room){
+    public Room addRoom(Room room) {
         return roomRepository.save(room);
     }
 
     @Transactional
-    public Room findOne(Integer id){
+    public Room findOne(Integer id) {
         return roomRepository.findOne(id);
     }
 
     @Transactional
-    public Room update(Integer id, Room room){
-        Room updateRoom=roomRepository.findOne(id);
+    public Room update(Integer id, Room room) {
+        Room updateRoom = roomRepository.findOne(id);
         updateRoom.setFloor(room.getFloor());
         updateRoom.setArea(room.getArea());
         updateRoom.setNum(room.getNum());
-        return  roomRepository.save(updateRoom);
+        return roomRepository.save(updateRoom);
     }
 
     @Transactional
-    public void delete(Integer id){
+    public void delete(Integer id) {
         roomRepository.delete(id);
     }
 }

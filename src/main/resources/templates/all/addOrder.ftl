@@ -14,6 +14,11 @@
         <div class="form-group">
             <label>Название компании:</label>
             <input type="text" name="name" class="form-control">
+            <p align="left">
+                <small>
+                    You also can <a href="/rent/company/add">add</a> company.
+                </small>
+            </p>
         </div>
         <div class="form-group">
             <label>Дата начала:</label>

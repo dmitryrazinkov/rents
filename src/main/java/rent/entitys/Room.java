@@ -1,6 +1,8 @@
 package rent.entitys;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -13,20 +15,26 @@ public class Room {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Min(value = 1,message = "Number less then 1.")
+    @Max(value = 1000,message = "Number more then 1000.")
     @NotNull(message = "Enter number.")
     private Integer num;
 
 
-    @ManyToOne(fetch= FetchType.EAGER)
-    @JoinColumn(name="busId")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "busId")
     private BussinesCenter bussinesCenter;
 
     @OneToMany(mappedBy = "room", fetch = FetchType.EAGER)
-    List<Orders> orders= new ArrayList<Orders>();
+    List<Orders> orders = new ArrayList<Orders>();
 
+    @Min(value = 1,message = "Floor less then 1.")
+    @Max(value = 1000,message = "Floor more then 1000.")
     @NotNull(message = "Enter floor.")
     private Integer floor;
 
+    @Min(value = 1,message = "Area less then 1.")
+    @Max(value = 1000,message = "Area more then 1000.")
     @NotNull(message = "Enter area.")
     private BigDecimal area;
 

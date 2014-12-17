@@ -11,7 +11,7 @@
     <h2 align="center">Companies</h2>
     <table class="table table-striped">
         <tr>
-            <th>ID</th>
+
             <th>Name</th>
             <th>Contact</th>
             <th>Tel.</th>
@@ -20,7 +20,7 @@
         <#list companiesList as company>
 
             <tr>
-                <td>${company.id}</td>
+
                 <td>${company.name}</td>
                 <td>${company.contact}</td>
                 <td>${company.tel}</td>

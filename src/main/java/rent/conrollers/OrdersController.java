@@ -32,44 +32,45 @@ public class OrdersController {
     CompanyService companyService;
 
     @RequestMapping("/{roomId}")
-    public String orders (@PathVariable Integer id,@PathVariable Integer roomId, ModelMap modelMap) {
-        modelMap.addAttribute("id",roomId);
-        modelMap.addAttribute("orderList",ordersService.findByRoomId(roomId));
+    public String orders(@PathVariable Integer id, @PathVariable Integer roomId, ModelMap modelMap) {
+        modelMap.addAttribute("id", roomId);
+        modelMap.addAttribute("orderList", ordersService.findByRoomId(roomId));
 
-        modelMap.addAttribute("roomNum",roomService.findOne(roomId).getNum());
+        modelMap.addAttribute("roomNum", roomService.findOne(roomId).getNum());
         return "all/orders";
     }
 
 
     @RequestMapping(value = "/{roomId}/addOrder", method = RequestMethod.GET)
-    public String addForm(@PathVariable Integer id,@PathVariable Integer roomId, ModelMap modelMap){
-        modelMap.addAttribute("roomId",roomId);
-        modelMap.addAttribute("id",id);
+    public String addForm(@PathVariable Integer id, @PathVariable Integer roomId, ModelMap modelMap) {
+        modelMap.addAttribute("roomId", roomId);
+        modelMap.addAttribute("id", id);
 
         return "all/addOrder";
     }
 
 
     @RequestMapping(value = "/{roomId}/addOrder", method = RequestMethod.POST)
-    public String addOrders(@PathVariable Integer id,@PathVariable Integer roomId, @ModelAttribute Company company, @ModelAttribute @Valid Orders order,BindingResult result, ModelMap modelMap){
-        company=companyService.findByName(company.getName());
+    public String addOrders(@PathVariable Integer id, @PathVariable Integer roomId, @ModelAttribute Company company,
+                            @ModelAttribute @Valid Orders order, BindingResult result, ModelMap modelMap) {
+        company = companyService.findByName(company.getName());
 
-        if(result.hasErrors()||company==null) {
+        if (result.hasErrors() || company == null) {
             List<String> errors = new ArrayList<String>();
 
             if (result.hasErrors()) {
-                    errors.add("Enter dates");
+                errors.add("Enter correct dates(in future).");
             }
             if (company == null) {
-                errors.add( "This company not found. Create this company or enter other");
+                errors.add("This company not found. Create this company or enter other");
 
             }
             modelMap.addAttribute("errors", errors);
             return "all/addOrder";
         }
 
-        Room room=roomService.findOne(roomId);
-        order=ordersService.addOrder(new Orders(order.getStartDate(),order.getEndDate(),company,room));
+        Room room = roomService.findOne(roomId);
+        order = ordersService.addOrder(new Orders(order.getStartDate(), order.getEndDate(), company, room));
         company.getOrders().add(order);
         room.getOrders().add(order);
 

@@ -1,6 +1,7 @@
 package rent.entitys;
 
 import javax.persistence.*;
+import javax.validation.constraints.Future;
 import java.sql.Date;
 
 @Entity
@@ -11,10 +12,10 @@ public class Orders {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-
+    @Future(message="start date must be date in future")
     private Date startDate;
 
-
+    @Future(message="end date must be date in future")
     private Date endDate;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -65,7 +66,7 @@ public class Orders {
         this.room = room;
     }
 
-    public Orders( Date startDate, Date endDate, Company company, Room room) {
+    public Orders(Date startDate, Date endDate, Company company, Room room) {
 
         this.startDate = startDate;
         this.endDate = endDate;

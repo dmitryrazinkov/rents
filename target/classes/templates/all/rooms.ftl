@@ -12,7 +12,7 @@
 <#if roomList??>
 <table class="table table-striped">
     <tr>
-        <th>#</th>
+
         <th>Number</th>
         <th>Floor</th>
         <th>Area</th>
@@ -22,7 +22,7 @@
     <#list roomList as room>
 
         <tr>
-            <td>${room.id}</td>
+
             <td>${room.num}</td>
             <td>${room.floor}</td>
             <td>${room.area}</td>

@@ -15,9 +15,9 @@ public class CompanyService {
     CompanyRepository companyRepository;
 
     @Transactional
-    public List<Company> allCompany(){
-        List<Company> companies=new ArrayList<Company>();
-        for(Company company: companyRepository.allCompanys()){
+    public List<Company> allCompany() {
+        List<Company> companies = new ArrayList<Company>();
+        for (Company company : companyRepository.allCompanys()) {
             companies.add(company);
         }
         return companies;
@@ -25,23 +25,23 @@ public class CompanyService {
     }
 
     @Transactional
-    public Company findByName(String name){
+    public Company findByName(String name) {
         return companyRepository.findByName(name);
     }
 
     @Transactional
-    public Company add(Company company){
+    public Company add(Company company) {
         return companyRepository.save(company);
     }
 
     @Transactional
-    public void delete(Integer id){
+    public void delete(Integer id) {
         companyRepository.delete(id);
     }
 
     @Transactional
-    public Company update(Integer id, Company company){
-        Company updateCompany=companyRepository.findOne(id);
+    public Company update(Integer id, Company company) {
+        Company updateCompany = companyRepository.findOne(id);
         updateCompany.setName(company.getName());
         updateCompany.setContact(company.getContact());
         updateCompany.setTel(company.getTel());
@@ -49,7 +49,7 @@ public class CompanyService {
     }
 
     @Transactional
-    public Company findOne(Integer id){
+    public Company findOne(Integer id) {
         return companyRepository.findOne(id);
     }
 }

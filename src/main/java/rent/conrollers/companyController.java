@@ -23,23 +23,24 @@ public class CompanyController {
     CompanyService companyService;
 
     @RequestMapping("")
-    public String allCompanies(ModelMap modelMap){
-        modelMap.addAttribute("companiesList",companyService.allCompany());
+    public String allCompanies(ModelMap modelMap) {
+        modelMap.addAttribute("companiesList", companyService.allCompany());
         return "all/companies";
     }
+
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String addForm(){
+    public String addForm() {
         return "all/addCompany";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String add(@ModelAttribute("company") @Valid Company company, BindingResult result, ModelMap modelMap){
-        if (result.hasErrors()){
-            List<String> errors=new ArrayList<String>();
-            for(FieldError error: result.getFieldErrors()){
+    public String add(@ModelAttribute("company") @Valid Company company, BindingResult result, ModelMap modelMap) {
+        if (result.hasErrors()) {
+            List<String> errors = new ArrayList<String>();
+            for (FieldError error : result.getFieldErrors()) {
                 errors.add(error.getDefaultMessage());
             }
-            modelMap.addAttribute("errors",errors);
+            modelMap.addAttribute("errors", errors);
             return "all/addCompany";
         }
 
@@ -48,20 +49,20 @@ public class CompanyController {
     }
 
     @RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
-    public String updateForm(ModelMap modelMap, @PathVariable Integer id)
-    {
-        modelMap.addAttribute("company",companyService.findOne(id));
+    public String updateForm(ModelMap modelMap, @PathVariable Integer id) {
+        modelMap.addAttribute("company", companyService.findOne(id));
         return "all/addCompany";
     }
 
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
-    public String update(@ModelAttribute("company") @Valid Company company, BindingResult result, ModelMap modelMap, @PathVariable Integer id){
-        if (result.hasErrors()){
-            List<String> errors=new ArrayList<String>();
-            for(FieldError error: result.getFieldErrors()){
+    public String update(@ModelAttribute("company") @Valid Company company, BindingResult result, ModelMap modelMap,
+                         @PathVariable Integer id) {
+        if (result.hasErrors()) {
+            List<String> errors = new ArrayList<String>();
+            for (FieldError error : result.getFieldErrors()) {
                 errors.add(error.getDefaultMessage());
             }
-            modelMap.addAttribute("errors",errors);
+            modelMap.addAttribute("errors", errors);
             return "all/addCompany";
         }
 
@@ -70,14 +71,13 @@ public class CompanyController {
     }
 
     @RequestMapping("/delete/{id}")
-    public String delete(@PathVariable Integer id,ModelMap modelMap){
-        if (companyService.findOne(id).getOrders().isEmpty()){
+    public String delete(@PathVariable Integer id, ModelMap modelMap) {
+        if (companyService.findOne(id).getOrders().isEmpty()) {
             companyService.delete(id);
             return "redirect:/rent/company";
-        }
-        else{
-            modelMap.addAttribute("error","You must delete all orders before delete company");
-            modelMap.addAttribute("companiesList",companyService.allCompany());
+        } else {
+            modelMap.addAttribute("error", "You must delete all orders before delete company");
+            modelMap.addAttribute("companiesList", companyService.allCompany());
             return "all/companies";
         }
     }
