@@ -27,11 +27,11 @@
         </div>
         <div class="form-group">
             <label>Дата начала:</label>
-            <input type="date" name="startDate" class="form-control">
+            <input type="date" name="startDate" class="form-control" <#if startDate??>value=${startDate}</#if> >
         </div>
         <div class="form-group">
             <label>Дата окончания:</label>
-            <input type="date" name="endDate" class="form-control">
+            <input type="date" name="endDate" class="form-control" <#if endDate??>value=${endDate}</#if> >
         </div>
         <input type="submit" value="Submit"  class="btn btn-default">
     </form>

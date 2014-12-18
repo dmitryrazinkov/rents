@@ -6,6 +6,7 @@ import rent.entitys.Orders;
 import rent.repositories.OdersRepository;
 
 import javax.transaction.Transactional;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,5 +32,22 @@ public class OrdersService {
     @Transactional
     public void delete(Integer id){
         odersRepository.delete(id);
+    }
+
+    @Transactional
+    public boolean checkDates(Orders order, Integer id){
+        Date start=order.getStartDate();
+        Date end=order.getEndDate();
+
+        for (Orders order1 : odersRepository.findByRoomId(id)) {
+            if (start.before(order1.getStartDate())&&end.after(order1.getStartDate()))
+                 return true;
+            if (start.before(order1.getEndDate())&&end.after(order1.getEndDate()))
+                return true;
+            if (start.after(order1.getStartDate())&&end.before(order1.getEndDate()))
+                return true;
+        }
+
+        return false;
     }
 }

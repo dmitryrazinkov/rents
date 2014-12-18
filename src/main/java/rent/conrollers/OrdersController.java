@@ -56,19 +56,37 @@ public class OrdersController {
     public String addOrders(@PathVariable Integer id, @PathVariable Integer roomId, @ModelAttribute Company company,
                             @ModelAttribute @Valid Orders order, BindingResult result, ModelMap modelMap) {
         company = companyService.findByName(company.getName());
+        boolean checkDates=false;
+        if(order.getStartDate()!=null&&order.getEndDate()!=null) {
+            checkDates = ordersService.checkDates(order, roomId);
+        }
 
-        if (result.hasErrors() || company == null) {
+        if (result.hasErrors() || company == null||order.getStartDate().after(order.getEndDate())||checkDates) {
             List<String> errors = new ArrayList<String>();
 
             if (result.hasErrors()) {
                 errors.add("Enter correct dates(in future).");
             }
+            else {
+                if (order.getStartDate().after(order.getEndDate())) {
+                    errors.add("End date must be after start date");
+                }
+                if (checkDates) {
+                    errors.add("Date conflict with other order for this room");
+                }
+            }
             if (company == null) {
                 errors.add("This company not found. Create this company or enter other");
 
             }
+
+
+            if (order.getStartDate()!=null)
+                modelMap.addAttribute("startDate",order.getStartDate().toString());
+            if (order.getEndDate()!=null)
+                modelMap.addAttribute("endDate",order.getEndDate().toString());
             modelMap.addAttribute("errors", errors);
-            modelMap.addAttribute("companies",companyService.allCompany());
+            modelMap.addAttribute("companies", companyService.allCompany());
             return "all/addOrder";
         }
 
