@@ -18,6 +18,7 @@
         companies.
         To start, click the button below.</p>
     <p align="center"><a class="btn btn-default btn-lg btn-block" href="/rent" role="button">Get start!</a></p>
+    <p align="center"><img src="/assets/pic.jpg" alt="..." class="img-rounded"></p>
     </div>
 </div>
 </body>

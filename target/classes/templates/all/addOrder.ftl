@@ -12,7 +12,7 @@
 
     <form method="post" action="/rent/center/${id}/${roomId}/addOrder"  >
         <div class="form-group">
-            <label>Название компании:</label>
+            <label>Name of company:</label>
      <!--       <input type="text" name="name" class="form-control"> -->
             <select name="name" class="form-control">
                 <#list companies as company>

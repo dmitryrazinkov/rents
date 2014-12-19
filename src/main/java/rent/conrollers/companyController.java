@@ -44,6 +44,13 @@ public class CompanyController {
             return "all/addCompany";
         }
 
+        Company companyFind=companyService.findByName(company.getName());
+        if (companyFind!=null){
+            List<String> errors = new ArrayList<String>();
+            errors.add("Такая компания уже существует");
+            modelMap.addAttribute("errors", errors);
+            return "all/addCompany";
+        }
         companyService.add(company);
         return "redirect:/rent/company";
     }

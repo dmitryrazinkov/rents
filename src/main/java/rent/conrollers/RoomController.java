@@ -135,6 +135,10 @@ public class RoomController {
             roomService.delete(roomId);
             return "redirect:/rent/center/{id}";
         } else {
+            BussinesCenter bussinesCenter = bussinesCenterService.getOne(id);
+            modelMap.addAttribute("center", bussinesCenter.getName());
+
+            modelMap.addAttribute("id", id);
             modelMap.addAttribute("error", "You must delete all orders before delete room");
             List<Room> rooms = b.getRooms();
             if (rooms != null) modelMap.addAttribute(rooms);

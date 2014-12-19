@@ -9,14 +9,17 @@
 
 
     <h2 align="center">Companies</h2>
-    <table class="table table-striped">
+    <table class="table table-striped" id="table">
+        <thead>
         <tr>
 
-            <th>Name</th>
-            <th>Contact</th>
-            <th>Tel.</th>
+            <th data-type="string">Name</th>
+            <th data-type="string">Contact</th>
+            <th data-type="string">Tel.</th>
             <th></th>
         </tr>
+        </thead>
+        <tbody>
         <#list companiesList as company>
 
             <tr>
@@ -33,6 +36,8 @@
             </tr>
 
         </#list>
+        </tbody>
     </table>
+    <script src="/assets/sort.js"></script>
     <a href="company/add" class="btn btn-default" role="button">Add Company</a>
     <#include "/all/footer.ftl">

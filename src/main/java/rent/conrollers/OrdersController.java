@@ -16,6 +16,7 @@ import rent.entitys.Orders;
 import rent.entitys.Room;
 
 import javax.validation.Valid;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,7 +59,7 @@ public class OrdersController {
         company = companyService.findByName(company.getName());
         boolean checkDates=false;
         if(order.getStartDate()!=null&&order.getEndDate()!=null) {
-            checkDates = ordersService.checkDates(order, roomId);
+            checkDates = checkDates(order, roomId);
         }
 
         if (result.hasErrors() || company == null||order.getStartDate().after(order.getEndDate())||checkDates) {
@@ -104,4 +105,21 @@ public class OrdersController {
         return "redirect:/rent/center/{id}/{roomId}";
     }
 
+    private boolean checkDates(Orders order, Integer id){
+        Date start=order.getStartDate();
+        Date end=order.getEndDate();
+
+        for (Orders order1 : ordersService.findByRoomId(id)) {
+            if (start.before(order1.getStartDate())&&end.after(order1.getStartDate()))
+                return true;
+            if (start.before(order1.getEndDate())&&end.after(order1.getEndDate()))
+                return true;
+            if (start.after(order1.getStartDate())&&end.before(order1.getEndDate()))
+                return true;
+            if((start.equals(order1.getStartDate()))&&(end.equals(order1.getEndDate())))
+                return true;
+        }
+
+        return false;
+    }
 }

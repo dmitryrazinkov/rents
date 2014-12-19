@@ -9,13 +9,16 @@
     </#if>
 
 <h2 align="center">Bussines Centers</h2>
-<table class="table table-striped">
+<table class="table table-striped" id="table">
+    <thead>
     <tr>
 
-        <th>Name</th>
+        <th data-type="string">Name</th>
         <th></th>
         <th></th>
     </tr>
+    </thead>
+    <tbody>
     <#list centerList as center>
 
         <tr>
@@ -33,7 +36,10 @@
         </tr>
 
     </#list>
+    </tbody>
 </table>
+<script src="/assets/sort.js">
+</script>
 <a href="/rent/center/add" class="btn btn-default" role="button"> Add Center</a>
 
 
